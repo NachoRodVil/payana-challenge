@@ -21,13 +21,13 @@ export class InvoicesService {
             await queryRunner.connect();
             await queryRunner.startTransaction();
             try {
-                const client = await queryRunner.manager.findOne(Clients, {where:{id: client_id}})
+                const client = await queryRunner.manager.findOneOrFail(Clients, {where:{id: client_id}})
                 const invoice = new Invoices()
                 invoice.total = 0
                 invoice.client =client
                 await queryRunner.manager.save(invoice)
                 for (const item of items){
-                    const product = await queryRunner.manager.findOne(Products, {where:{id: item.id}})
+                    const product = await queryRunner.manager.findOneOrFail(Products, {where:{id: item.id}})
                     const invoiceItem = new InvoiceItems()
                     invoiceItem.product = product
                     invoiceItem.invoice = invoice
@@ -39,6 +39,7 @@ export class InvoicesService {
                 await queryRunner.manager.save(invoice)
                 await queryRunner.commitTransaction();
             } catch (e) {
+                console.log("rollbaaaack!")
                 await queryRunner.rollbackTransaction();
                 throw e;
             } finally {

@@ -14,7 +14,8 @@ export class ProductController {
     @Body('client_id') client_id: string,
     @Body('items') items: ItemsArray[],
   ){
-    return await this.invoicesService.createInvoice(client_id,items)
+    await this.invoicesService.createInvoice(client_id,items)
+    return "Invoice created successfully!"
   }
 
   @Get(":id")
