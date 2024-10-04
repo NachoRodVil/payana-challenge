@@ -6,8 +6,8 @@ services:
     container_name: payana_challenge
     hostname: payana_challenge
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: test123
+      POSTGRES_USER: <user>
+      POSTGRES_PASSWORD: <password>
       POSTGRES_DB: invoice_db
     volumes:
       - db_data:/var/lib/postgresql/data
