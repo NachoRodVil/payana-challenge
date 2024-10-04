@@ -2,13 +2,13 @@
 
 ## Instrucciones para correr el proyecto
 
-Primero, desde la consola hay que entrar y correr el siguiente comando:
+Primero, desde la consola hay que entrar a la carpeta "db" y correr el siguiente comando:
 
 ```
 docker compose -p payana-challenge up -d
 ```
 
-Luego, hay que dirigirnos a la carpeta backend y correr los siguientes comandos:
+Luego, hay que dirigirnos a la carpeta "backend" y correr los siguientes comandos:
 
 ```
 npm i
