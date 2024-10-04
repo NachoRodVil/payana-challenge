@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  payana-db:
+    image: postgres:13
+    container_name: payana_challenge
+    hostname: payana_challenge
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: test123
+      POSTGRES_DB: invoice_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  db_data:
+ 
