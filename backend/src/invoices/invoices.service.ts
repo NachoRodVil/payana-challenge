@@ -39,7 +39,6 @@ export class InvoicesService {
                 await queryRunner.manager.save(invoice)
                 await queryRunner.commitTransaction();
             } catch (e) {
-                console.log("rollbaaaack!")
                 await queryRunner.rollbackTransaction();
                 throw e;
             } finally {
